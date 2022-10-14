@@ -1,0 +1,135 @@
+@prefix : <http://www.semanticweb.org/K&D_Group_99#> .
+@prefix ns1: <http://www.semanticweb.org/K&D_Group_99/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/K&D_Group_99> .
+
+<http://www.semanticweb.org/K&D_Group_99> rdf:type owl:Ontology ;
+                                           owl:imports <http://www.opengis.net/ont/geosparql> .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://dbpedia.org/ontology/dutchArtworkCode
+<http://dbpedia.org/ontology/dutchArtworkCode> rdf:type owl:AnnotationProperty ;
+                                               rdfs:domain <http://dbpedia.org/ontology/Artwork> .
+
+
+###  http://dbpedia.org/ontology/museum
+<http://dbpedia.org/ontology/museum> rdf:type owl:AnnotationProperty ;
+                                     rdfs:domain <http://dbpedia.org/ontology/Artwork> .
+
+
+###  http://dbpedia.org/ontology/painter
+<http://dbpedia.org/ontology/painter> rdf:type owl:AnnotationProperty ;
+                                      rdfs:domain <http://dbpedia.org/ontology/Artwork> .
+
+
+###  http://open.vocab.org/terms/defines
+<http://open.vocab.org/terms/defines> rdf:type owl:AnnotationProperty .
+
+
+###  http://open.vocab.org/terms/describes
+<http://open.vocab.org/terms/describes> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/K&D_Group_99/born_at
+ns1:born_at rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/K&D_Group_99/born_in
+ns1:born_in rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/K&D_Group_99/named
+ns1:named rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2007/05/powder-s#describedby
+<http://www.w3.org/2007/05/powder-s#describedby> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/prov#wasDerivedFrom
+<http://www.w3.org/ns/prov#wasDerivedFrom> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/K&D_Group_99#born_in
+:born_in rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/K&D_Group_99#born_at
+:born_at rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/K&D_Group_99#named
+:named rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://dbpedia.org/ontology/Artwork
+<http://dbpedia.org/ontology/Artwork> rdf:type owl:Class ;
+                                      rdfs:subClassOf <http://dbpedia.org/ontology/Work> .
+
+
+###  http://dbpedia.org/ontology/Painting
+<http://dbpedia.org/ontology/Painting> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://dbpedia.org/ontology/Artwork> .
+
+
+###  http://dbpedia.org/ontology/Sculpture
+<http://dbpedia.org/ontology/Sculpture> rdf:type owl:Class ;
+                                        rdfs:subClassOf <http://dbpedia.org/ontology/Artwork> .
+
+
+###  http://dbpedia.org/ontology/Work
+<http://dbpedia.org/ontology/Work> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://www.opengis.net/ont/geosparql#SpatialObject> .
+
+
+###  http://www.semanticweb.org/K&D_Group_99#Artist
+:Artist rdf:type owl:Class ;
+        rdfs:subClassOf :Person .
+
+
+###  http://www.semanticweb.org/K&D_Group_99#City
+:City rdf:type owl:Class ;
+      rdfs:subClassOf :Country .
+
+
+###  http://www.semanticweb.org/K&D_Group_99#Country
+:Country rdf:type owl:Class ;
+         rdfs:subClassOf <http://www.opengis.net/ont/geosparql#SpatialObject> .
+
+
+###  http://www.semanticweb.org/K&D_Group_99#Museum
+:Museum rdf:type owl:Class ;
+        rdfs:subClassOf <http://www.opengis.net/ont/geosparql#SpatialObject> .
+
+
+###  http://www.semanticweb.org/K&D_Group_99#Name
+:Name rdf:type owl:Class ;
+      rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> .
+
+
+###  http://www.semanticweb.org/K&D_Group_99#Person
+:Person rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/K&D_Group_99/City
+ns1:City rdf:type owl:Class .
+
