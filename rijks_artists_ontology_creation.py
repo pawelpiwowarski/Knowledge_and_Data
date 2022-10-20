@@ -26,7 +26,7 @@ def serialize_graph(g):
 
 
 g = Graph()
-g.parse("./turtle_files/base.ttl", format="turtle")
+g.parse("./turtle_files/rijks_artworks.ttl", format="turtle")
 
 
 ex = Namespace(
@@ -65,4 +65,4 @@ serialize_graph(g)
 
 # save graph in turtle format
 g.serialize(
-    destination='./turtle_files/artist_rijks_ontology.ttl', format='turtle')
+    destination='./turtle_files/final_rijks_ontology.ttl', format='turtle')

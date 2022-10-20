@@ -18,7 +18,7 @@ def serialize_graph(g):
 
 
 g = Graph()
-g.parse("./turtle_files/artist_rijks_ontology.ttl", format="turtle")
+g.parse("./turtle_files/base.ttl", format="turtle")
 
 
 musuem_name = 'RijksMuseum'
@@ -45,11 +45,11 @@ for index, row in df.iterrows():
     colors = ast.literal_eval(row['colors'])
     dimeensions = row['dimensions']
 
-    artwork = URIRef(ex[normalize_name(title)])
+    artwork = URIRef(ex[normalize_name(title[0:6])])
     artist = URIRef(ex[artist])
     g.add((artwork, RDF.type, ex.artwork))
     g.add((artist, ex.made, artwork))
-    g.add((artwork, ex.hasTitle, Literal(title)))
+    g.add((artwork, ex.hasTitle, Literal((title))))
     g.add((artwork, ex.hasUrl, Literal(url)))
     g.add((artwork, ex.hasMaterial, Literal(material)))
     g.add((artwork, ex.hasDimensions, Literal(dimeensions)))
@@ -65,4 +65,4 @@ serialize_graph(g)
 
 
 g.serialize(
-    destination='./turtle_files/final_rijks_ontology.ttl', format='turtle')
+    destination='./turtle_files/rijks_artworks.ttl', format='turtle')
