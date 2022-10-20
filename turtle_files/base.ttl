@@ -1,0 +1,266 @@
+@prefix : <http://www.semanticweb.org/ontologies/2022/9/group_99#> .
+@prefix art: <http://www.semanticweb.org/ontologies/2022/9/group_99> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/ontologies/2022/9/group_99> .
+
+<http://www.semanticweb.org/ontologies/2022/9/group_99> rdf:type owl:Ontology ;
+                                                         owl:imports <http://www.opengis.net/ont/geosparql> .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://dbpedia.org/ontology/dutchArtworkCode
+<http://dbpedia.org/ontology/dutchArtworkCode> rdf:type owl:AnnotationProperty ;
+                                               rdfs:domain <http://dbpedia.org/ontology/Artwork> .
+
+
+###  http://dbpedia.org/ontology/museum
+<http://dbpedia.org/ontology/museum> rdf:type owl:AnnotationProperty ;
+                                     rdfs:domain <http://dbpedia.org/ontology/Artwork> .
+
+
+###  http://dbpedia.org/ontology/painter
+<http://dbpedia.org/ontology/painter> rdf:type owl:AnnotationProperty ;
+                                      rdfs:domain <http://dbpedia.org/ontology/Artwork> .
+
+
+###  http://open.vocab.org/terms/defines
+<http://open.vocab.org/terms/defines> rdf:type owl:AnnotationProperty .
+
+
+###  http://open.vocab.org/terms/describes
+<http://open.vocab.org/terms/describes> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2007/05/powder-s#describedby
+<http://www.w3.org/2007/05/powder-s#describedby> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/prov#wasDerivedFrom
+<http://www.w3.org/ns/prov#wasDerivedFrom> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#Lies_in
+:Lies_in rdf:type owl:ObjectProperty ;
+         rdfs:domain :City ;
+         rdfs:range :Country .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#bornIn
+:bornIn rdf:type owl:ObjectProperty ;
+        rdfs:domain :Person ;
+        rdfs:range :City .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#hasNationality
+:hasNationality rdf:type owl:ObjectProperty ;
+                rdfs:domain :Person ;
+                rdfs:range :Nationality .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#locatedIn
+:locatedIn rdf:type owl:ObjectProperty ,
+                    owl:AsymmetricProperty ;
+           rdfs:domain :artwork ;
+           rdfs:range :Museum .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#made
+:made rdf:type owl:ObjectProperty ;
+      rdfs:domain :Artist ;
+      rdfs:range :artwork .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#bornAt
+:bornAt rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Person ;
+        rdfs:range xsd:nonNegativeInteger .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#diedAt
+:diedAt rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Person ;
+        rdfs:range xsd:nonNegativeInteger .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#hasColor
+:hasColor rdf:type owl:DatatypeProperty ;
+          rdfs:domain :artwork ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#hasDimensions
+:hasDimensions rdf:type owl:DatatypeProperty ;
+               rdfs:domain :artwork ;
+               rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#hasGender
+:hasGender rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Person ;
+           rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#hasMaterial
+:hasMaterial rdf:type owl:DatatypeProperty ;
+             rdfs:domain :artwork ;
+             rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#hasName
+:hasName rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Person ;
+         rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#hasOccupation
+:hasOccupation rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Artist ;
+               rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#hasTitle
+:hasTitle rdf:type owl:DatatypeProperty ;
+          rdfs:domain :artwork ;
+          rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#hasUrl
+:hasUrl rdf:type owl:DatatypeProperty ;
+        rdfs:domain :artwork ;
+        rdfs:range rdfs:Literal .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://dbpedia.org/ontology/Artwork
+<http://dbpedia.org/ontology/Artwork> rdf:type owl:Class ;
+                                      owl:equivalentClass :artwork ;
+                                      rdfs:subClassOf <http://dbpedia.org/ontology/Work> ;
+                                      rdfs:comment "A work of art, artwork, art piece, or art object is an aesthetic item or artistic creation."@en ,
+                                                   "فن کا کام،  فَنی  پیس، یا فَنی  آبجیکٹ ایک جمالیاتی شے یا فنکارانہ تخلیق ہے۔"@ur ;
+                                      rdfs:isDefinedBy <http://dbpedia.org/ontology/> ;
+                                      rdfs:label "Kunstwerk"@de ,
+                                                 "artwork"@en ,
+                                                 "kunstværk"@da ,
+                                                 "kunstwerk"@nl ,
+                                                 "obra de arte"@es ,
+                                                 "opera d'arte"@it ,
+                                                 "saothar ealaíne"@ga ,
+                                                 "œuvre d'art"@fr ,
+                                                 "έργο τέχνης"@el ,
+                                                 "کار ہنر"@ur ,
+                                                 "作品"@ja ,
+                                                 "작품"@ko ;
+                                      <http://www.w3.org/2007/05/powder-s#describedby> <http://dbpedia.org/ontology/data/definitions.ttl> ;
+                                      <http://www.w3.org/ns/prov#wasDerivedFrom> <http://mappings.dbpedia.org/index.php/OntologyClass:Artwork> .
+
+
+###  http://dbpedia.org/ontology/Painting
+<http://dbpedia.org/ontology/Painting> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://dbpedia.org/ontology/Artwork> .
+
+
+###  http://dbpedia.org/ontology/Sculpture
+<http://dbpedia.org/ontology/Sculpture> rdf:type owl:Class ;
+                                        rdfs:subClassOf <http://dbpedia.org/ontology/Artwork> .
+
+
+###  http://dbpedia.org/ontology/Work
+<http://dbpedia.org/ontology/Work> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://www.opengis.net/ont/geosparql#SpatialObject> .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#Artist
+:Artist rdf:type owl:Class ;
+        owl:equivalentClass [ rdf:type owl:Restriction ;
+                              owl:onProperty :made ;
+                              owl:someValuesFrom <http://dbpedia.org/ontology/Artwork>
+                            ] ;
+        rdfs:subClassOf :Person .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#City
+:City rdf:type owl:Class ;
+      owl:equivalentClass [ rdf:type owl:Restriction ;
+                            owl:onProperty :Lies_in ;
+                            owl:someValuesFrom :Country
+                          ] ;
+      rdfs:subClassOf <http://www.opengis.net/ont/geosparql#SpatialObject> .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#Country
+:Country rdf:type owl:Class ;
+         rdfs:subClassOf <http://www.opengis.net/ont/geosparql#SpatialObject> .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#Gender
+:Gender rdf:type owl:Class ;
+        rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#MoMa
+:MoMa rdf:type owl:Class ;
+      rdfs:subClassOf :Museum .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#Museum
+:Museum rdf:type owl:Class ;
+        rdfs:subClassOf <http://www.opengis.net/ont/geosparql#SpatialObject> .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#Nationality
+:Nationality rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#Person
+:Person rdf:type owl:Class ;
+        owl:equivalentClass foaf:Person ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :bornAt ;
+                              owl:someValuesFrom xsd:nonNegativeInteger
+                            ] .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#RijksMusuem
+:RijksMusuem rdf:type owl:Class ;
+             rdfs:subClassOf :Museum .
+
+
+###  http://www.semanticweb.org/ontologies/2022/9/group_99#artwork
+:artwork rdf:type owl:Class ;
+         rdfs:subClassOf <http://dbpedia.org/ontology/Work> .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+foaf:Person rdf:type owl:Class .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+<http://dbpedia.org/ontology/> <http://open.vocab.org/terms/defines> <http://dbpedia.org/ontology/Artwork> .
+
+
+<http://dbpedia.org/ontology/data/definitions.ttl> <http://open.vocab.org/terms/describes> <http://dbpedia.org/ontology/Artwork> .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
