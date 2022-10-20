@@ -27,11 +27,11 @@ def serialize_graph(g):
 
 
 g = Graph()
-g.parse("./turtle_files/base.ttl", format="turtle")
+g.parse("./turtle_files/export.ttl", format="turtle")
 
 
 ex = Namespace(
-    "http://www.semanticweb.org/ontologies/2022/9/group_99#")
+    "http://www.semanticweb.org/K&D_Group_99/")
 
 owl = Namespace("http://www.w3.org/2002/07/owl#")
 
@@ -39,31 +39,31 @@ rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
 
 dbr = Namespace("http://dbpedia.org/resource/")
 df = pd.read_csv(
-    './Collections/Rijksmuseum_Collection/Final_Rijks_Data/Final_Artist_Data_Rijks.csv')
+    './Collections/Rijksmuseum_Collection/ArtistsDataFromRijks.csv')
 
 
 for index, row in df.iterrows():
 
+    print(row.keys())
     name = row['name']
     city = row['city']
     birthDate = row['birthDate']
-    deathDate = row['deathDate']
-    occupation = row['occupation']
-    country = row['nationality']
+
     # create a new artist
     artist = URIRef(ex[normalize_name(name)])
     city = URIRef(dbr[normalize_name(city)])
 
-    g.add((artist, ex.bornIn, city))
-    g.add((artist, ex.bornAt, Literal(str(birthDate), datatype=XSD.nonNegativeInteger)))
-    g.add((artist, ex.diedAt, Literal(str(deathDate), datatype=XSD.nonNegativeInteger)))
-    g.add((artist, ex.hasName, Literal(name)))
-    g.add((artist, ex.hasNationality, URIRef(dbr[normalize_name(country)])))
+    g.add((city, RDF.type, ex.City))
+    g.add((artist, RDF.type, ex.Artist))
+    g.add((artist, ex.born_in, city))
+
+    g.add((artist, ex.born_at, Literal(birthDate, datatype=XSD.date)))
+
+    g.add((artist, ex.named, Literal(name)))
 
 
 serialize_graph(g)
 
 
 # save graph in turtle format
-g.serialize(
-    destination='./turtle_files/rijks_artists_final.ttl', format='turtle')
+g.serialize(destination='./turtle_files/rijks_artists.ttl', format='turtle')
