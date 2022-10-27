@@ -1,0 +1,26 @@
+<h2> Read Me For the Project</h2>
+<p> There are two ontologies avaliable</p>
+<ul> 
+<li> 
+One without inferences 
+</li>
+<li> 
+Second with inferences
+</li>
+</ul>
+
+<p> You should add the ontology with inferences to GRAPHDB! </p>
+
+<p> Makes sure that you have the following python packages installed<p>
+
+<ul> 
+<li> 
+Pandas
+</li>
+<li> 
+Folium
+</li>
+<li> 
+SPARQLWrapper
+</li>
+</ul>
