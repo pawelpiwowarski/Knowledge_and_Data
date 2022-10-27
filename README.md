@@ -23,6 +23,7 @@ Folium
 <li> 
 SPARQLWrapper
 </li>
+<br>
 <p> We recommend running the notebook inside a browser for the best experience. <p></p>
 <p>  We wish you a good time with our project! </p>
 <p>  GROUP_99 </p>
