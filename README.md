@@ -12,6 +12,7 @@ Second with inferences(final_inferred_ontology.ttl)
 <p> You should add the ontology with inferences to GRAPHDB! </p>
 
 <p> Makes sure that you have the following python packages installed<p>
+<p > To display the map you should trust the Notebook! </p>
 
 <ul> 
 <li> 
