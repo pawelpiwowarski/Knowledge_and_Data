@@ -16,7 +16,7 @@
   \texttt{2739038@student.vu.nl}
   \and
   Keira Zieboll\\
-  \texttt{}
+  \texttt{2680132@student.vu.nl}
    \and
   Teodora Taran\\
   \texttt{2737833@student.vu.nl}
@@ -58,7 +58,7 @@ We chose our ontologies based on how suitable they were for use with our domain 
 
 \subsection{Description of External Datasets}
 
-Similarly to our choice of ontologies, we found appropriate datasets that would fit our analysis domain. We narrowed down our choice of external datasets to 3 different sources: the MoMA data service\cite{Moma}, the Rijkmuseum data service\cite{Rijks} and DBPedia, which is an external SPARQL endpoint\cite{Dbpedia}. 
+Similarly to our choice of ontologies, we found appropriate datasets that would fit our analysis domain. We narrowed down our choice of external datasets to 3 different sources: the MoMA data service\cite{Moma}, the Rijkmuseum data service\cite{Rijks} and DBpedia, which is an external SPARQL endpoint\cite{Dbpedia}. 
 
 With an ever-changing collection of around 200,000 pieces from all over the world, painting, sculpture, printing, drawing, photography, architecture, design, video, media, and performance art are among the many forms of visual expression represented in the collection of MoMA.
 
@@ -197,11 +197,11 @@ The creation of Artwork ontology for Moma required writing a simple python scrip
 \newpage
 \subsection{Inference Description}
 
-The first inference that the reasoner picked up correctly inferred that all entities with the bornAt
-predicate are Persons. When we created the class restriction that every entity that was bornAt
-some date is a Person, the reasoner correctly inferred that all of the entities that we added to the
-graph are in fact Persons. The second inference was that Artist is an equivalence class of Person. This is simply because
-there are no other entities with the bornAt relation in our ontology 
+The first inference that the reasoner picked up correctly inferred that all entities with the \textit{bornAt}
+predicate are Persons. When we created the class restriction that every entity that was \textit{bornAt}
+some date is a \underline{Person}, the reasoner correctly inferred that all of the entities that we added to the
+graph are in fact Persons. The second inference was that \underline{Artist} is an equivalence class of \underline{Person}. This is simply because
+there are no other entities with the \textit{bornAt} relation in our ontology 
 
 \begin{center}
 \includegraphics[width=350, height=150]{first_inference.png}
